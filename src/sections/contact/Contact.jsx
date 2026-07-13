@@ -136,11 +136,11 @@ const Contact = () => {
 
           <motion.button
             variants={ItemVariants}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.95 }}
             type="submit"
             disabled={status === "sending"}
-            className="flex items-center justify-center gap-2 rounded-2xl bg-black dark:bg-gray-600 text-white py-4 cursor-pointer"
+            className="flex mx-auto px-5 items-center justify-center gap-2 rounded-2xl bg-black dark:bg-gray-600 text-white py-4 cursor-pointer"
           >
             {status === "sending" ? "Sending..." : "Submit"}
             <IoIosSend />
