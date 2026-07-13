@@ -61,8 +61,17 @@ export const projects = [
     title: "MERN blog platform",
     tagline:
       "A full-stack blogging app with rich content authoring and smooth client-side routing",
-    description: "A dynamic blog application built with React and Vite for a fast frontend experience, using React Router v6 for seamless navigation and Redux Toolkit for state management. Includes JWT authentication, blog CRUD operations, tagging, and a rich text editor for content creation.",
-    techStack: ["React", "Vite", "Redux Toolkit", "Node.js", "Express", "MongoDB", "Cloudinary"],
+    description:
+      "A dynamic blog application built with React and Vite for a fast frontend experience, using React Router v6 for seamless navigation and Redux Toolkit for state management. Includes JWT authentication, blog CRUD operations, tagging, and a rich text editor for content creation.",
+    techStack: [
+      "React",
+      "Vite",
+      "Redux Toolkit",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Cloudinary",
+    ],
     imageUrl: Blog,
     githubUrl: "https://github.com/Pratap-Codes/blog_webapp",
     liveUrl: "",
@@ -73,7 +82,15 @@ export const projects = [
       "A collaborative task management platform inspired by Trello, built for teams to plan and track work together",
     description:
       "Task Unity is a team-based task sharing and project management web application that lets users organize work into boards, lists, and cards — similar to Trello. As a group project, my main contribution was on the frontend, building the interface and user interactions, alongside serving as Schedule Manager to coordinate the team's timelines and task delegation.",
-    techStack: [],
+    techStack: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Tailwind CSS",
+      "REST API",
+      "JWT",
+    ],
     imageUrl: TaskUnity,
     githubUrl: "https://github.com/Pratap-Codes/TaskUnity",
     liveUrl: "",
@@ -82,7 +99,8 @@ export const projects = [
     title: "GTA VI Landing Page",
     tagline:
       "A cinematic, animation-driven landing page recreating the GTA VI reveal aesthetic",
-    description: "A visually immersive landing page inspired by the GTA VI trailer reveal, built to showcase advanced frontend animation skills. Uses GSAP for SVG mask reveals and mouse-based parallax effects to create a cinematic, game-trailer feel entirely in the browser.",
+    description:
+      "A visually immersive landing page inspired by the GTA VI trailer reveal, built to showcase advanced frontend animation skills. Uses GSAP for SVG mask reveals and mouse-based parallax effects to create a cinematic, game-trailer feel entirely in the browser.",
     techStack: ["React", "GSAP", "Tailwind CSS", "Vercel"],
     imageUrl: GtaVI,
     githubUrl: "https://github.com/Pratap-Codes/GTA-VI-LandingPage-React",
