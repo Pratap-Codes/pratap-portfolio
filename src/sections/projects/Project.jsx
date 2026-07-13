@@ -1,22 +1,55 @@
-import React, { useState } from 'react'
-import { projects } from '../../data/data'
-import ProjectCard from '../../Components/ui/ProjectCard'
-import ProjectModal from '../../Components/ui/ProjectModal'
+import React, { useState } from "react";
+import { projects } from "../../data/data";
+import ProjectCard from "../../Components/ui/ProjectCard";
+import ProjectModal from "../../Components/ui/ProjectModal";
+import { motion } from "motion/react";
 
+const ContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.15,
+    },
+  },
+};
+const ItemVariants = {
+  hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.9, ease: "easeOut" },
+  },
+};
 const Project = () => {
-  const [selectedProject, setSelectedProject] = useState(null)
+  const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section className='w-full px-6 py-3 md:py-10 lg:py-20' id='project'>
-      <div className='max-w-4xl mx-auto'>
-        <div className='flex flex-col items-center gap-3 mb-12 md:mb-16'>
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-semibold text-black dark:text-white'>Project</h2>
-          <div className='h-1 w-20 bg-black dark:bg-white rounded-full'></div>
-        </div>
+    <section className="w-full px-6 py-3 md:py-10 lg:py-20" id="project">
+      <motion.div
+        variants={ContainerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="max-w-4xl mx-auto"
+      >
+        <motion.div
+          variants={ItemVariants}
+          className="flex flex-col items-center gap-3 mb-12 md:mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-black dark:text-white">
+            Project
+          </h2>
+          <div className="h-1 w-20 bg-black dark:bg-white rounded-full"></div>
+        </motion.div>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
+        <motion.div
+          variants={ItemVariants}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+        >
           {projects.map((project, index) => (
-            <ProjectCard 
+            <ProjectCard
               key={index}
               imageUrl={project.imageUrl}
               title={project.title}
@@ -27,15 +60,16 @@ const Project = () => {
               onReadMore={() => setSelectedProject(project)}
             />
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      <ProjectModal 
-        project={selectedProject} 
-        onClose={() => setSelectedProject(null)} 
+      <ProjectModal
+      
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
       />
     </section>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;

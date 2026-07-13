@@ -1,95 +1,170 @@
 import React, { useRef, useState } from "react";
 import { IoIosSend } from "react-icons/io";
-import emailjs from "@emailjs/browser"
+import emailjs from "@emailjs/browser";
+import { motion } from "motion/react";
+
+const ContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.15,
+    },
+  },
+};
+
+const ItemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+    filter: "blur(6px)",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+};
 
 const Contact = () => {
   const formRef = useRef();
-  const [status, setStatus] = useState("")
+  const [status, setStatus] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("sending");
-    console.log("Service:", import.meta.env.VITE_EMAILJS_SERVICE_ID);
-  console.log("Template:", import.meta.env.VITE_EMAILJS_TEMPLATE_ID);
-  console.log("Public Key:", import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-    emailjs.sendForm(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      formRef.current,
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    )
-    .then(()=> {
-      setStatus("success");
-      formRef.current.reset();
-    })
-    .catch((error) => {
-      console.log(error)
-      setStatus("error");
-    })
-  }
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        setStatus("success");
+        formRef.current.reset();
+      })
+      .catch((error) => {
+        console.log(error);
+        setStatus("error");
+      });
+  };
+
   return (
     <section id="contact" className="py-15">
-      <div className="flex flex-col gap-3 text-black dark:text-white items-center">
-        <h2 className="text-2xl text-center  font-semibold md:text-4xl lg:text-5xl">
+      <motion.div
+        className="max-w-4xl mx-auto px-6 text-black dark:text-white flex flex-col items-center"
+        variants={ContainerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {/* Heading */}
+        <motion.h2
+          variants={ItemVariants}
+          className="text-2xl md:text-4xl lg:text-5xl font-semibold text-center"
+        >
           Contact
-        </h2>
-        <div className="h-1 w-20 bg-black dark:bg-white rounded-full "></div>
-      </div>
-      <div className="max-w-4xl mx-auto mb-15 text-black dark:text-white">
-        <form 
-        ref={formRef}
-        onSubmit={handleSubmit}
-        className="flex flex-col px-6 justify-center items-center mt-5 space-y-5">
-          <h3 className="text-xl lg:text-3xl font-bold mb-4">
-            Let's work together
-          </h3>
-          <div className="text-sm md:text-lg lg:text-xl text-center ">
-            <h3>
-              I’m currently open to internship opportunities and freelance
-              projects.
-            </h3>
-            <h3>
-              If you have an idea or need a developer, feel free to reach out.
-            </h3>
-          </div>
-          <input
+        </motion.h2>
+
+        <motion.div
+          variants={ItemVariants}
+          className="h-1 w-20 bg-black dark:bg-white rounded-full mt-3 mb-10"
+        />
+
+        {/* Text */}
+        <motion.h3
+          variants={ItemVariants}
+          className="text-xl lg:text-3xl font-bold mb-4 text-center"
+        >
+          Let's work together
+        </motion.h3>
+
+        <motion.p
+          variants={ItemVariants}
+          className="text-center text-sm md:text-lg lg:text-xl"
+        >
+          I'm currently open to internship opportunities and freelance
+          projects.
+        </motion.p>
+
+        <motion.p
+          variants={ItemVariants}
+          className="text-center text-sm md:text-lg lg:text-xl mb-8"
+        >
+          If you have an idea or need a developer, feel free to reach out.
+        </motion.p>
+
+        {/* Form */}
+        <motion.form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          variants={ContainerVariants}
+          className="w-full flex flex-col gap-5"
+        >
+          <motion.input
+            variants={ItemVariants}
             type="text"
             name="name"
             required
-            className="w-full px-3 md:py-4 py-2 bg-black/90 dark:bg-gray-600/60 placeholder:text-white text-white text-lg rounded-2xl shadow-lg border border-transparent focus:outline-none focus:border-3 focus:border-amber-300/80 "
-            placeholder="Full name"
+            placeholder="Full Name"
+            className="w-full px-4 py-3 rounded-2xl bg-black/90 dark:bg-gray-600/60 text-white placeholder:text-white border border-transparent focus:border-amber-300 focus:outline-none"
           />
-          <input
+
+          <motion.input
+            variants={ItemVariants}
             type="email"
             name="email"
+            required
+            placeholder="Your Email"
+            className="w-full px-4 py-3 rounded-2xl bg-black/90 dark:bg-gray-600/60 text-white placeholder:text-white border border-transparent focus:border-amber-300 focus:outline-none"
+          />
 
-            required
-            className="w-full px-3 md:py-4 py-2 bg-black/90 dark:bg-gray-600/60 placeholder:text-white text-white text-lg rounded-2xl shadow-lg border border-transparent focus:outline-none focus:border-3 focus:border-amber-300/80 "
-            placeholder="Your email"
-          />
-          <textarea
-            type="text"
-            name="message"
+          <motion.textarea
+            variants={ItemVariants}
             rows={5}
+            name="message"
             required
-            className="w-full h-32 px-3 md:py-4 py-2 bg-black/90 dark:bg-gray-600/60 placeholder:text-white text-white text-lg rounded-2xl shadow-lg border border-transparent focus:outline-none focus:border-3 focus:border-amber-300/80 "
             placeholder="Your Message"
+            className="w-full px-4 py-3 rounded-2xl bg-black/90 dark:bg-gray-600/60 text-white placeholder:text-white border border-transparent focus:border-amber-300 focus:outline-none"
           />
-          <button
-            className="flex items-center gap-2 p-3 md:p-4 dark:bg-gray-600 bg-black text-white rounded-2xl cursor-pointer hover:scale-102 hover:opacity-90 transition-all duration-100 ease-out"
+
+          <motion.button
+            variants={ItemVariants}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             type="submit"
-            disabled={status === 'sending'}
+            disabled={status === "sending"}
+            className="flex items-center justify-center gap-2 rounded-2xl bg-black dark:bg-gray-600 text-white py-4 cursor-pointer"
           >
-            {status === 'sending' ? 'Sendingh....' : 'submit'} <IoIosSend className="text-white" />
-          </button>
+            {status === "sending" ? "Sending..." : "Submit"}
+            <IoIosSend />
+          </motion.button>
+
           {status === "success" && (
-            <p className="text-green-400 text-sm">Message sent ✓ I'll get back to you soon.</p>
+            <motion.p
+              variants={ItemVariants}
+              className="text-green-500 text-center"
+            >
+              ✓ Message sent successfully!
+            </motion.p>
           )}
+
           {status === "error" && (
-            <p className="text-red-400 text-sm">Something went wrong. Please try again.</p>
+            <motion.p
+              variants={ItemVariants}
+              className="text-red-500 text-center"
+            >
+              Something went wrong. Please try again.
+            </motion.p>
           )}
-        </form>
-      </div>
+        </motion.form>
+      </motion.div>
     </section>
   );
 };

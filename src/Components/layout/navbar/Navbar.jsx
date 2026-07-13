@@ -4,8 +4,10 @@ import useActiveSection from "../../../hooks/ActiveSection";
 import { navLinks } from "../../../data/data";
 import { SiCoggle } from "react-icons/si";
 import { easeInOut, easeOut, motion, stagger } from "motion/react";
+import { useLoading } from "../../../context/LoadingContext";
 
 const Navbar = () => {
+  const {loading} = useLoading();
   const scrollDirection = useScrollDirection();
   const activeSection = useActiveSection();
   const [isOpen, setIsOpen] = useState(false);
@@ -16,8 +18,8 @@ const Navbar = () => {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
+        staggerChildren: 0.06,
+        delayChildren: 0,
       },
     },
   };
@@ -47,11 +49,12 @@ const Navbar = () => {
           y: -70,
           filter: "blur(4px)",
         }}
-        animate={{
-          opacity: 1,
+        animate={
+          loading ? {opacity:0, y:-70, filter:"blur(4px)"} :
+          {opacity: 1,
           y: 0,
-          filter: "blur(0px)",
-        }}
+          filter: "blur(0px)",}
+        }
         transition={{
           duration: 0.3,
           ease: easeOut,
@@ -65,7 +68,7 @@ const Navbar = () => {
         <motion.div
           variants={navContainerVariants}
           initial="hidden"
-          animate="visible"
+          animate={loading ? "hidden" : "visible"}
           className="hidden md:flex md:px-4 md:py-3   dark:bg-[#1a1a1a]/30 backdrop-blur-lg rounded-3xl  items-center gap-12 text-[16px] font-semibold border border-black/40 dark:border-white/10"
         >
           {navLinks.map((link) => (

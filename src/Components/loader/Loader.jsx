@@ -15,7 +15,6 @@ const Loader = ({ onComplete }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-      setTimeout(onComplete, 900);
     }, 2200);
     return () => clearTimeout(timer);
   }, [onComplete]);
@@ -38,7 +37,7 @@ const Loader = ({ onComplete }) => {
     }
   }, [isLoading])
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={onComplete}>
     {isLoading && (
       <div className="fixed inset-0 z-[100] flex">
         <motion.div
@@ -70,8 +69,12 @@ const NameReveal = () => {
           exit={{ opacity: 0 }}
           transition={{
             duration: 0.3,
-            delay: i * 0.2,
-            ease: easeOut,
+            delay: i * 0.15,
+            ease: easeInOut,
+          }}
+          exit={{
+            opacity:0,
+            transition:{duration:0.15},
           }}
           className="text-5xl md:text-7xl font-bold text-white inline-block"
         >
