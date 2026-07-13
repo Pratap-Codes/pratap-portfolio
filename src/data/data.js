@@ -17,7 +17,7 @@ import {
   SiHtmlacademy,
   SiMysql,
 } from "react-icons/si";
-import { HotelImage, GtaVI, Blog } from "../assets/index.js";
+import { HotelImage, GtaVI, Blog, TaskUnity } from "../assets/index.js";
 
 export const skills = [
   { icon: FaReact, title: "React" },
@@ -74,8 +74,8 @@ export const projects = [
     description:
       "Task Unity is a team-based task sharing and project management web application that lets users organize work into boards, lists, and cards — similar to Trello. As a group project, my main contribution was on the frontend, building the interface and user interactions, alongside serving as Schedule Manager to coordinate the team's timelines and task delegation.",
     techStack: [],
-    imageUrl: HotelImage,
-    githubUrl: "",
+    imageUrl: TaskUnity,
+    githubUrl: "https://github.com/Pratap-Codes/TaskUnity",
     liveUrl: "",
   },
   {
