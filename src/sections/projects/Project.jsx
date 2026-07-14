@@ -64,7 +64,6 @@ const Project = () => {
       </motion.div>
 
       <ProjectModal
-      
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
       />

@@ -13,7 +13,7 @@ const ProjectModal = ({ project, onClose }) => {
       onClick={onClose}
     >
       <div 
-        className='max-w-2xl w-full max-h-[90] overflow-y-auto rounded-xl
+        className='max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-xl
                    bg-gradient-to-br from-zinc-900 via-zinc-950 to-indigo-950/10
                    border border-neutral-800 p-6'
         onClick={(e) => e.stopPropagation()}
