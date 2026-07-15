@@ -5,6 +5,7 @@ import {
   FaJava,
   FaPython,
   FaFigma,
+  FaEnvelope,
 } from "react-icons/fa";
 import {
   SiMongodb,
@@ -14,27 +15,47 @@ import {
   SiExpress,
   SiHtml5,
   SiCss,
-  SiHtmlacademy,
   SiMysql,
+  SiGsap,
+  SiVercel,
+  SiGithub,
+  SiRedux,
+  SiJsonwebtokens,
+  SiCloudinary,
+  SiFramer,
+  SiReactrouter,
+  SiPostman,
 } from "react-icons/si";
+import { BsJavascript } from "react-icons/bs";
 import { HotelImage, GtaVI, Blog, TaskUnity } from "../assets/index.js";
 
+
 export const skills = [
-  { icon: FaReact, title: "React" },
-  { icon: FaNodeJs, title: "Node.js" },
-  { icon: SiMongodb, title: "MongoDB" },
-  { icon: SiExpress, title: "Express" },
+  { icon: BsJavascript, title: "JavaScript" },
   { icon: SiTypescript, title: "TypeScript" },
-  { icon: SiTailwindcss, title: "Tailwind" },
-  { icon: FaGitAlt, title: "Git" },
-  { icon: SiVite, title: "Vite" },
-  { icon: SiHtml5, title: "HTML" },
-  { icon: SiCss, title: "CSS" },
   { icon: FaJava, title: "Java" },
   { icon: FaPython, title: "Python" },
-  { icon: FaPython, title: "Python" },
-  { icon: FaFigma, title: "Figma" },
+  { icon: FaReact, title: "React" },
+  { icon: SiReactrouter, title: "React Router" },
+  { icon: SiRedux, title: "Redux Toolkit" },
+  { icon: SiFramer, title: "Framer Motion" },
+  { icon: SiGsap, title: "GSAP" },
+  { icon: SiTailwindcss, title: "Tailwind" },
+  { icon: SiHtml5, title: "HTML" },
+  { icon: SiCss, title: "CSS" },
+  { icon: SiVite, title: "Vite" },
+  { icon: FaNodeJs, title: "Node.js" },
+  { icon: SiExpress, title: "Express" },
+  { icon: SiJsonwebtokens, title: "JWT" },
+  { icon: SiMongodb, title: "MongoDB" },
   { icon: SiMysql, title: "MySQL" },
+  { icon: SiCloudinary, title: "Cloudinary" },
+  { icon: FaEnvelope, title: "EmailJS" },
+  { icon: FaGitAlt, title: "Git" },
+  { icon: SiGithub, title: "Github" },
+  { icon: SiVercel, title: "Vercel" },
+  { icon: SiPostman, title: "Postman" },
+  { icon: FaFigma, title: "Figma" },
 ];
 
 export const navLinks = [
