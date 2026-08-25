@@ -69,7 +69,7 @@ const Hero = () => {
             variants={ItemVariants}
             className="text-xl text-black dark:text-white font-semibold md:text-4xl"
           >
-            Pratap Yadav -{" "}
+            a-{" "}
             <span className="font-extrabold text-2xl md:text-[40px]">
               Jr. Fullstack Developer.
             </span>

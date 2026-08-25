@@ -7,10 +7,10 @@ const ProjectCard = ({
 }) => {
   return (
     <div
-      className="group rounded-xl border border-neutral-800 overflow-hidden
-                 bg-gradient-to-b from-white to-neutral-50 
+      className="group rounded-xl border border-black/50 overflow-hidden
+                 bg-linear-to-b from-white to-neutral-50 
                  dark:from-zinc-900 dark:to-black
-                 border border-neutral-200 dark:border-zinc-800/60
+                 dark:border-zinc-800/60
                  hover:border-indigo-300 dark:hover:border-indigo-500/30
                  shadow-sm hover:shadow-md dark:shadow-none
                  hover:-translate-y-1 transition-all duration-300"
@@ -46,7 +46,7 @@ const ProjectCard = ({
         <div className="flex items-center gap-4">
           <button
             onClick={onReadMore}
-            className="text-sm text-white hover:text-indigo-300 font-medium cursor-pointer"
+            className="text-sm text-black hover:text-black/80 dark:text-white  dark:hover:text-indigo-300 font-medium cursor-pointer"
           >
             Read more →
           </button>

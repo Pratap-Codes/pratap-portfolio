@@ -12,7 +12,7 @@ const ThemeToggle = () => {
     whileHover={{scale:1.1}}
     transition={{duration:0.2}}
     aria-label='Toggle theme'
-    className='fixed bottom-6 right-6 p-3 z-50 rounded-full bg-gray-200 dark:bg-[#1a1a1a] text-black dark:text-white shadow-lg border border-white/10 cursor-pointer'
+    className='fixed bottom-6 right-6 p-3 z-50 rounded-full bg-gray-300 dark:bg-[#1a1a1a] text-black dark:text-white shadow-lg border border-white/10 cursor-pointer'
     >
       {theme === "dark" ? <MdOutlineLightMode size={20} /> : <MdOutlineDarkMode size={20}/> }
     </motion.div>

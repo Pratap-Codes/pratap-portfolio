@@ -39,7 +39,7 @@ const Loader = ({ onComplete }) => {
   return (
     <AnimatePresence onExitComplete={onComplete}>
     {isLoading && (
-      <div className="fixed inset-0 z-[100] flex">
+      <div className="fixed inset-0 z-100 flex">
         <motion.div
           className="w-full h-screen bg-black flex items-center justify-center overflow-hidden"
           initial={{ y: 0 }}
@@ -66,7 +66,6 @@ const NameReveal = () => {
           key={i}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y:0 }}
-          exit={{ opacity: 0 }}
           transition={{
             duration: 0.3,
             delay: i * 0.15,
