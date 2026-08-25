@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Host: pratapyadav.vercel.app
 
 Sitemap: https://pratapyadav.vercel.app/sitemap.xml

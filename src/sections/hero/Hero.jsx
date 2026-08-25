@@ -48,7 +48,7 @@ const Hero = () => {
             src={Photo.Photo}
             loading="lazy"
             onLoad={() => setLoaded(true)}
-            alt="profile"
+            alt="Pratap Yadav profile photo"
             className={`h-full w-full object-cover transition-opacity duration-1000 
           ${loaded ? "opacity-100" : "opacity-0"}`}
           />
@@ -69,9 +69,9 @@ const Hero = () => {
             variants={ItemVariants}
             className="text-xl text-black dark:text-white font-semibold md:text-4xl"
           >
-            a{" "}
+            Pratap Yadav -{" "}
             <span className="font-extrabold text-2xl md:text-[40px]">
-              Jr.Fullstack Developer.
+              Jr. Fullstack Developer.
             </span>
           </motion.h1>
           <motion.div
